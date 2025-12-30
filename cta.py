@@ -1,8 +1,12 @@
 import requests
 from datetime import datetime
 from zoneinfo import ZoneInfo
+from dotenv import load_dotenv
+import os
 
-API_KEY = "a256063ea7434f7db551e2b70ea42893"  # paste your key back in
+load_dotenv()
+
+API_KEY = os.getenv("CTA_API_KEY")
 
 STATIONS = {
     "40380": "Clark/Lake",

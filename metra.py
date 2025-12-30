@@ -2,8 +2,12 @@ import requests
 from google.transit import gtfs_realtime_pb2
 from datetime import datetime
 from zoneinfo import ZoneInfo
+from dotenv import load_dotenv
+import os
 
-METRA_API_TOKEN = "179|QnjVySibzcRfjluBXNlA4hVSbetoMhb2KqkqKgOlb6909b61"  # the full thing with the |
+load_dotenv()
+
+METRA_API_TOKEN = os.getenv("METRA_API_TOKEN")
 
 url = f"https://gtfspublic.metrarr.com/gtfs/public/tripupdates?api_token={METRA_API_TOKEN}"
 
