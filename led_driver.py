@@ -70,7 +70,7 @@ FONT_3X5 = {
     'H': ["101", "101", "111", "101", "101"],
     'I': ["111", "010", "010", "010", "111"],
     'M': ["10001", "11011", "10101", "10001", "10001"],
-    'N': ["101", "111", "111", "101", "101"],
+    'N': ["10001", "11001", "10101", "10011", "10001"],
     'O': ["010", "101", "101", "101", "010"],
     'R': ["110", "101", "110", "101", "101"],
     'S': ["111", "100", "111", "001", "111"],
@@ -232,7 +232,7 @@ def build_grid():
 
     # Date (right side)
     date_str = f"{now.month}/{now.day}"
-    draw_text(grid, date_str, 20, 1)
+    draw_text(grid, date_str, 17, 1)
 
     # Row 2: Temperature (y=8)
     if temp is not None:
@@ -244,7 +244,7 @@ def build_grid():
     if hour == 0:
         hour = 12
     time_str = f"{hour}:{now.minute:02d}"
-    draw_text(grid, time_str, 18, 8)
+    draw_text(grid, time_str, 15, 8)
 
     # Divider line (y=14)
     for x in range(32):
@@ -257,7 +257,7 @@ def build_grid():
     color = 2 if time_str != "--" else 1
     draw_text(grid, time_str, 12, 17, color)
     # Separator dot
-    grid[19][20] = 1
+    grid[19][21] = 1
     # Second ME time
     time_str, color = get_time_str(metra, 1)
     draw_text(grid, time_str, 24, 17, color)
@@ -273,7 +273,7 @@ def build_grid():
     color = 2 if time_str != "--" else 1
     draw_text(grid, time_str, 12, 27, color)
     # Separator dot
-    grid[29][20] = 1
+    grid[29][21] = 1
     # Second bus time
     time_str, color = get_time_str(bus, 1)
     draw_text(grid, time_str, 24, 27, color)
